@@ -1,0 +1,129 @@
+:root{
+  --handle-position: 10%;
+}
+
+body{
+  padding: 0;
+  margin: 0;
+}
+
+.stage{
+  height: 100vh;
+  display: flex;
+}
+
+.device-parent{
+  position: relative;
+  margin: auto;
+  min-width: 150px;
+  min-height: 510px;
+  max-width: 350px;
+  max-height: 710px;
+  height: 90vh;
+  width: 100%;
+}
+
+.device-skin-img{
+  position: relative;
+  height: 100%;
+}
+
+.device{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  max-height: 710px;
+}
+
+.screen-bg{
+  position: absolute;
+  height: 98%;
+  z-index: -1;
+  background: black;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  border-radius: 32px;
+}
+
+.screen{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  height: 90%;
+  z-index: 1;
+  color: white;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  border-radius: 32px;
+}
+
+.screen>div{
+  width: 90%;
+  height: 90%;
+  position: relative;
+}
+
+.timeline,
+.timeline:hover{
+  transition: height .2s;
+}
+
+.progress-bar-container{
+  position: absolute;
+  width: 100%;
+  bottom: 30px;
+  left: 0;
+  cursor: pointer;
+}
+
+.timeline{
+  position: relative;
+  width: 100%;
+  height: 5px;
+  background-color: #c0c0c082;
+  cursor: pointer;
+}
+
+.timeline::before{
+  content: '';
+  position: absolute;
+  width: var(--handle-position);
+  height: 100%;
+  background: red;
+  cursor: pointer;
+}
+
+.point{
+  position: absolute;
+  left: calc(var(--handle-position) - 10px);
+  width: 20px;
+  height: 20px;
+  background: red;
+  border-radius: 50px;
+  top: -8px;
+  transform: scale(0);
+  cursor: pointer;
+  z-index: 2;
+  transition: transform .2s;
+  pointer-events: none;
+}
+
+.timeline:hover {
+  height: 10px;
+}
+
+.timeline:hover .point{
+  transition: transform .2s;
+  transform: scale(1.2);
+  top: -50%;
+}
