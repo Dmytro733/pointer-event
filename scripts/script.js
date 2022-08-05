@@ -6,20 +6,18 @@ let timeline = screen.querySelector('.timeline');
 
 function defaultValueWindow(){
   device.style.height = `${deviceParent.clientHeight}px`;
-  screen.style.width = `${device.clientWidth - 20}px`;
-  screen.style.height = `${device.clientHeight - 100}px`;
-  screenBg.style.width = `${device.clientWidth - 20}px`;
-  screenBg.style.height = `${device.clientHeight - 20}px`;
+
+  deviceParent.style.setProperty('--screen-height',`${device.clientHeight - 100}px`);
+  deviceParent.style.setProperty('--screen-width',`${device.clientWidth - 20}px`);
 };
 
 
 function resizeWindow() {
   window.addEventListener("resize", () => {
     device.style.height = `${deviceParent.clientHeight}px`;
-    screen.style.width = `${device.clientWidth - 20}px`;
-    screen.style.height = `${device.clientHeight - 100}px`;
-    screenBg.style.width = `${device.clientWidth - 20}px`;
-    screenBg.style.height = `${device.clientHeight - 20}px`;
+
+    deviceParent.style.setProperty('--screen-height',`${device.clientHeight - 100}px`);
+    deviceParent.style.setProperty('--screen-width',`${device.clientWidth - 20}px`);
   })
 };
 
