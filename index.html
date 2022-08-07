@@ -1,33 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <!-- <link rel="stylesheet" href="/styles/style.css"> -->
-    <link rel="stylesheet" href="/styles/style-2.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="/styles/style.css">
 </head>
+
 <body>
-    <div class="stage">
-        <div class="device-parent">
-            <div class="device-skin-img">
-                <img class="device" src="/img/apple-iphone-13-pro-max-2021-medium.png" alt="">
-            </div>
-            <div class="screen-bg"></div>
-            <div class="screen-wrap">
-                <div class="screen">
-                    <!-- TIMELINE POINTER EVENT
-                    <div class="progress-bar-container">
+  <div class="stage">
+    <div class="device-parent">
+      <div class="device-skin-img">
+        <img class="device" src="/img/apple-iphone-13-pro-max-2021-medium.png" alt="">
+      </div>
+      <div class="screen-bg"></div>
+      <div class="screen-wrap">
+        <div class="screen">
+          <!-- USING SCRIPT FOR TIMELINE POINTER EVENT -->
+          <!-- <div class="progress-bar-container">
                         <div class="timeline">
                             <div class="point"></div>
                         </div>
                     </div> -->
-                </div>
+
+          <!-- USING SCRIPT-2 FOR DOT EVENT -->
+
+          <!-- USING SCRIPT-3 FOR PAINT -->
+          <div class="tools">
+            <div class="tool-size">
+              <input type="range" id="size-brush" value="5" min="3" max="10" step="1">
             </div>
+            <div class="tools-other">
+              <div class="tool tool-color">
+                <img class="brush icon" src="/img/paint-brush.png" alt="">
+                <input type="color" value="#ffffff">
+              </div>
+              <div class="tool tool-bg-color">
+                <img class="background icon" src="/img/background.png" alt="">
+                <input type="button" bg-color="black">
+              </div>
+              <div class="tool tool-elastic">
+                <img class="elastic icon" src="/img/icons8-eraser-65.png" alt="">
+                <input type="button">
+              </div>
+            </div>
+          </div>
+          <canvas class="paint"></canvas>
         </div>
+      </div>
     </div>
-    <!-- <script src="/scripts/script.js"></script> -->
-    <script src="/scripts/script-2.js"></script>
+  </div>
+  <!-- <script src="/scripts/script.js"></script> -->
+  <!-- <script src="/scripts/script-2.js"></script> -->
+  <script src="/scripts/script-3.js"></script>
 </body>
+
 </html>
