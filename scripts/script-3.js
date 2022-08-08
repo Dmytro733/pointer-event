@@ -13,7 +13,7 @@ const tools = {
   clear_screen_tool: ".tools .tool-clear-screen input"
 }
 
-function defaultValueWindow(){
+function startApp(){
   device.style.height = `${deviceParent.clientHeight}px`;
 
   deviceParent.style.setProperty('--screen-height',`${device.clientHeight - 100}px`);
@@ -24,7 +24,7 @@ function defaultValueWindow(){
   action();
 };
 
-defaultValueWindow();
+startApp();
 
 function resizeWindow() {
   window.addEventListener("resize", () => {
