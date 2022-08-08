@@ -10,9 +10,7 @@ const tools = {
   color_tool: ".tools .tool-color input",
   size_tool: ".tools .tool-size input",
   bg_color_tool: ".tools .tool-bg-color input",
-
-  moon_icon: ".tools .tool-bg-color .moon",
-  sun_icon: ".tools .tool-bg-color .sun"
+  clear_screen_tool: ".tools .tool-clear-screen input"
 }
 
 function defaultValueWindow(){
@@ -26,6 +24,8 @@ function defaultValueWindow(){
   action();
 };
 
+defaultValueWindow();
+
 function resizeWindow() {
   window.addEventListener("resize", () => {
     device.style.height = `${deviceParent.clientHeight}px`;
@@ -38,10 +38,8 @@ function resizeWindow() {
   })
 };
 
-defaultValueWindow();
-
 canvas.addEventListener('pointerdown', () => {
-  action();
+  setBrushValue();
   canvas.addEventListener('pointermove', event => {
     positionDot(event)
   })
@@ -72,38 +70,37 @@ function setBrushValue(){
   ctx.lineCap = "round";
   ctx.strokeStyle = screen.querySelector(tools.color_tool).value;
 }
+  
 
-function actionBackgroundColor(){
-  let chooseBtn = screen.querySelector(tools.bg_color_tool);
-  chooseBtn.addEventListener('click', () => {
-    setBackgroundColor();
-  })
-}
-
-function setBackgroundColor(){
-  let chooseBtn = screen.querySelector(tools.bg_color_tool);
-
-  switch (chooseBtn.getAttribute('bg-color')) {
+function setBackgroundColor(target){
+  switch (target.getAttribute('bg-color')) {
     case "black":
-      chooseBtn.setAttribute('bg-color', "white");
-      chooseBtn.style.borderColor = "black";
-      chooseBtn.style.background = "black";
+      target.setAttribute('bg-color', "white");
+      target.style.borderColor = "black";
+      target.style.background = "black";
       screen.querySelector('.tools').style.setProperty('--tools-color',"black");
       break;
   
     case "white":
-      chooseBtn.setAttribute('bg-color', "black");
-      chooseBtn.style.borderColor = "white";
-      chooseBtn.style.background = "white";
+      target.setAttribute('bg-color', "black");
+      target.style.borderColor = "white";
+      target.style.background = "white";
       screen.querySelector('.tools').style.setProperty('--tools-color',"white");
       break;
   }
-  deviceParent.style.setProperty('--main-background',chooseBtn.getAttribute('bg-color'));
+  deviceParent.style.setProperty('--main-background',target.getAttribute('bg-color'));
+}
+ 
+function сlearScreen(){
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
 }
 
 function action(){
+
   resizeWindow();
   setBrushValue();
-  actionBackgroundColor();
+
+  screen.querySelector(tools.bg_color_tool).addEventListener('click', (event) => setBackgroundColor(event.target))
+  screen.querySelector(tools.clear_screen_tool).addEventListener('click', () => сlearScreen())
 }
 
